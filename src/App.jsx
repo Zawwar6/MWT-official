@@ -12,11 +12,13 @@ import Collection from './pages/Collection';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
+
 const App = () => {
   return (
     <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] '>
     <Router> {/* Only use BrowserRouter once */}
       <Navbar/>
+     
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
@@ -24,7 +26,7 @@ const App = () => {
         <Route path="/place-order" element={<PlaceOrder />} />
         <Route path="/order" element={<Order />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/product" element={<Product />} />
+        <Route path="/product/:productId" element={<Product />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/collection" element={<Collection />} />
       </Routes>
