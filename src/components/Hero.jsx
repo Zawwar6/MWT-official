@@ -23,7 +23,7 @@ const Hero = () => {
 </div>
 
       
-       <img className='w-[500px] h-[500px] ' src='/1.jpg' alt="" />
+       <img className='w-auto h-[500px] ' src='/1.jpg' alt="" />
      
 
     </div>
