@@ -11,12 +11,15 @@ import Cart from './pages/Cart';
 import Collection from './pages/Collection';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import { ToastContainer, toast } from 'react-toastify';
 
 
 const App = () => {
   return (
     <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] '>
+
     <Router> {/* Only use BrowserRouter once */}
+      <ToastContainer/>
       <Navbar/>
      
       <Routes>
