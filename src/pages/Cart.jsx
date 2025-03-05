@@ -2,8 +2,11 @@ import React, { useContext, useEffect, useState } from 'react'
 import { ShopContext } from '../context/ShopContext'
 import Title from '../components/Title';
 import { assets } from '../assets/assets/assets';
+import CartTotal from '../components/CartTotal';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const Cart = () => {
+  const navigate = useNavigate()
   const {products,currency, cartItems , updateQuantity} = useContext(ShopContext);
   const [cardData, setCardData] = useState([]);
 
@@ -55,13 +58,21 @@ const Cart = () => {
       {/* Input Field & Delete Icon */}
       <div className='flex items-center justify-center gap-4'>
         <input onChange={(e)=>e.target.value === '' || e.target.value === '0' ? null : updateQuantity(item._id,item.size,Number(e.target.value))} className='border px-2 py-1 w-16 text-center' type="number" min={1} defaultValue={item.quantity} />
-        <img   className='w-5 cursor-pointer hover:opacity-80 transition' src={assets.bin_icon} alt="Delete" onClick={() => updateQuantity(item._id,item.size,0)} />
+        <img className='w-5 cursor-pointer hover:opacity-80 transition' src={assets.bin_icon} alt="Delete" onClick={() => updateQuantity(item._id,item.size,0)} />
       </div>
     </div>
     
     );
   })
 }
+         </div>
+         <div className='flex justify-end my-20'>
+             <div className='w-full sm:w-[450px]'>
+                  <CartTotal/>
+                  <div className='w-full text-end'>
+                        <button onClick={()=>navigate('/place-order')} className='bg-black text-white text-sm my-8 px-8 py-3 cursor-pointer'>PROCEED TO CHECK OUT</button>
+                  </div>
+             </div>
          </div>
     </div>
   )
